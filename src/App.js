@@ -5,6 +5,7 @@ import { Button, Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import img from './img/bg.png';
 import { useState } from 'react';
 import data from './data.js';
+import {Routes, Route, Link} from 'react-router-dom'
 
 function App() {
 
@@ -12,6 +13,11 @@ function App() {
 
   return (
     <div className="App">
+
+      <Routes>
+        <Route path='/detail' element={<div>asd</div>}></Route>
+        <Route path='/about' ></Route>
+      </Routes>
       <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home">shop</Navbar.Brand>
