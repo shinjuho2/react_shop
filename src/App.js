@@ -40,9 +40,9 @@ function App() {
 
     <div className='container'>
       <div className='row'>
-        <Product shoes={shoes}></Product>
-        <Product shoes={shoes}></Product>
-        <Product shoes={shoes}></Product>
+        <Product shoes={shoes[0]} i = {1}></Product>
+        <Product shoes={shoes[1]} i = {2}></Product>
+        <Product shoes={shoes[2]} i = {3}></Product>
       </div>
     </div>
     </div>
@@ -52,9 +52,9 @@ function App() {
 function Product(props){
   return(
     <div className='col-md-4'>
-      <img src='https://codingapple1.github.io/shop/shoes1.jpg' width="80%"/>
-      <h4>{props.shoes[2].title}</h4>
-      <p>{props.shoes[2].price}</p>
+      <img src={'https://codingapple1.github.io/shop/shoes'+ props.i +'.jpg'} width="80%"/>
+      <h4>{props.shoes.title}</h4>
+      <p>{props.shoes.price}</p>
     </div>
   )
 }
