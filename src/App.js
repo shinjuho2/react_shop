@@ -5,27 +5,27 @@ import { Button, Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import img from './img/bg.png';
 import { useState } from 'react';
 import data from './data.js';
-import { Routes, Route, Link } from 'react-router-dom'
-import Detail from './detail';
+import { Routes, Route, Link, useNavigate, Outlet, Navigate } from 'react-router-dom'
+import Detail from './pages/detail';
 
 function App() {
 
   let [shoes] = useState(data)
+  let navigate = useNavigate();
 
   return (
     <div className="App">
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">shop</Navbar.Brand>
+          <Navbar.Brand onClick={() => { navigate('/') }}>shop</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/detail">detail</Nav.Link>
+              <Nav.Link onClick={() => { navigate('/') }}>Home</Nav.Link>
+              <Nav.Link onClick={() => { navigate('/detail') }}>detail</Nav.Link>
               <NavDropdown title="성별" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">남성</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  여성
+                <NavDropdown.Item href="#action/3.2">여성
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                 <NavDropdown.Divider />
@@ -51,10 +51,27 @@ function App() {
             </div>
           </div>
         }></Route>
+
         <Route path='/detail' element={<Detail></Detail>}></Route>
+
+        <Route path='/about' element={<About></About>}>
+          <Route path='member' element={<div>member</div>}></Route>
+          <Route path='location' element={<div>location</div>}></Route>
+        </Route>
+
+        <Route path='*' element={<div>:b :(</div>}></Route>
       </Routes>
     </div>
   );
+}
+
+function About() {
+  return (
+    <div>
+      <h4>회사 정보</h4>
+      <Outlet></Outlet>
+    </div>
+  )
 }
 
 function Product(props) {
