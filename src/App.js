@@ -59,10 +59,24 @@ function App() {
           <Route path='location' element={<div>location</div>}></Route>
         </Route>
 
+        <Route path='event' element={<Event></Event>}>
+          <Route path='one' element={<div>happy</div>}></Route>
+          <Route path='two' element={<div>unhappy</div>}></Route>
+        </Route>
+
         <Route path='*' element={<div>:b :(</div>}></Route>
       </Routes>
     </div>
   );
+}
+
+function Event() {
+  return (
+    <div>
+      <h4>today event</h4>
+      <Outlet></Outlet>
+    </div>
+  )
 }
 
 function About() {
