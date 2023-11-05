@@ -1,18 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 
 function Detail(props) {
 
+  let [alert, setalert] = useState(true)
+
   useEffect(() => {
-    
+    let timer = setTimeout(() => { setalert(false) }, 2000);
   })
 
+  let [count, setcount] = useState(0);
   let { id } = useParams();
   let find = props.shoes.find(x => x.id == id);
 
   return (
     <div className="container">
+      {
+        alert === true
+        ?
+        (<div className="alert alert-warning">
+          click me within 2 seconds
+        </div>)
+        : null
+      }
+      {count}
+      <button onClick={() => {
+        setcount(count + 1)
+      }}>button</button>
       <div className="row">
         <div className="col-md-6">
           <img src={'https://codingapple1.github.io/shop/shoes' + (id) + '.jpg'} width="100%" />
