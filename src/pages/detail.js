@@ -29,6 +29,7 @@ function Detail(props) {
         setcount(count + 1)
       }}>button</button>
       <div className="row">
+      <input ></input>
         <div className="col-md-6">
           <img src={'https://codingapple1.github.io/shop/shoes' + (id) + '.jpg'} width="100%" />
         </div>
