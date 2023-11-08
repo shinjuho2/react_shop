@@ -39,7 +39,7 @@ function Detail(props) {
           <h4 className="pt-5">{find.title}</h4>
           <p>{find.content}</p>
           <p>수량</p>
-          <input></input>
+          <input className="onlyNum"></input>
           <p>{find.price}원</p>
           <button className="btn btn-danger">주문하기</button>
         </div>
