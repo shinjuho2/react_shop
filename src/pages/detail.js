@@ -5,6 +5,12 @@ import { useParams } from "react-router-dom";
 function Detail(props) {
 
   let [alert, setalert] = useState(true)
+  let [num, setnum] = useState('')
+  useEffect( () => {
+    if (isNaN(num) == true) {
+      alert('no num')
+    }
+  }, [num] )
 
   useEffect(() => {
     let timer = setTimeout(() => { setalert(false) }, 2000)
@@ -38,8 +44,10 @@ function Detail(props) {
         <div className="col-md-6 mt-4">
           <h4 className="pt-5">{find.title}</h4>
           <p>{find.content}</p>
-          <p>수량</p>
-          <input className="onlyNum"></input>
+          <input className="onlyNum" placeholder="수량을 입력해라" type="text"></input>
+          {
+            
+          }
           <p>{find.price}원</p>
           <button className="btn btn-danger">주문하기</button>
         </div>
