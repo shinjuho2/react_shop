@@ -7,6 +7,7 @@ import { useState } from 'react';
 import data from './data.js';
 import { Routes, Route, Link, useNavigate, Outlet, Navigate } from 'react-router-dom'
 import Detail from './pages/detail';
+import axios from 'axios';
 
 function App() {
 
@@ -45,10 +46,16 @@ function App() {
             <div className='container'>
               <div className='row'>
                 {shoes.map((a, i) => {
-                  return <Product shoes={shoes[i]} i={i}></Product>
+                  return <Product shoes={shoes[i]} i={i} key={a.id}></Product>
                 })}
               </div>
             </div>
+            <Button onClick={() => { 
+              axios.get('https://codingapple1.github.io/shop/data2.json')
+              .then((result) => {
+                console.log(result.data)
+              })
+             }}></Button>
           </div>
         }></Route>
 
