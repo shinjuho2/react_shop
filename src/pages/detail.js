@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 function Detail(props) {
 
-  let [alert, setalert] = useState(true)
+  let [alert1, setalert] = useState(true)
   let [num, setnum] = useState('')
   useEffect( () => {
     if (isNaN(num) == true) {
@@ -26,7 +26,7 @@ function Detail(props) {
   return (
     <div className="container">
       {
-        alert === true
+        alert1 === true
         ?
         (<div className="alert alert-warning">
           click me within 2 seconds
@@ -44,12 +44,9 @@ function Detail(props) {
         <div className="col-md-6 mt-4">
           <h4 className="pt-5">{find.title}</h4>
           <p>{find.content}</p>
-          <input className="onlyNum" placeholder="수량을 입력해라" type="text"></input>
-          {
-            
-          }
           <p>{find.price}원</p>
           <button className="btn btn-danger">주문하기</button>
+          <input onChange={(e) => {setnum(e.target.value)}} />
         </div>
       </div>
     </div>
